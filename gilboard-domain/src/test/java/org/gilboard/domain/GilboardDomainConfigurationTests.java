@@ -1,10 +1,10 @@
-package org.gilboard;
+package org.gilboard.domain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GilboardApplicationTests {
+class GilboardDomainConfigurationTests {
 
     @Test
     void contextLoads() {

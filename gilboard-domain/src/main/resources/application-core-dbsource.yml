@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:9876/study?characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: gilbert
+    password: 1234
+
+  jpa:
+    database: mysql
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.spatial.dialect.mysql.MySQLSpatialDialect
+    show-sql: true
