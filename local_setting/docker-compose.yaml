@@ -1,0 +1,22 @@
+services:
+  mysql:
+    build: ./mysql/
+    image: gilberto9172/play-ground:latest
+    container_name: play-ground
+    volumes:
+      - play_ground_mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: study
+    ports:
+      - '9876:3306'
+    restart: always
+    platform: linux/amd64
+    networks:
+      - gilbert-local-network
+
+networks:
+  gilbert-local-network:
+
+volumes:
+  play_ground_mysql_data:
