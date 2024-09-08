@@ -2,8 +2,4 @@ spring:
   config:
     activate:
       on-profile: local
-    import: classpath:application-core-dbsource.yml
-
-  mvc:
-    path-match:
-      matching-strategy: ANT_PATH_MATCHER
+    import: classpath:application-domain-dbsource.yml

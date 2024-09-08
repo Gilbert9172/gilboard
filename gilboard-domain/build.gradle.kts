@@ -17,17 +17,18 @@ dependencies {
 }
 
 val buildDir = layout.buildDirectory.get()
+val mainDir = "generated/sources/annotationProcessor/java/main"
 
 sourceSets {
     main {
         java {
-            srcDir("$buildDir/generated/sources/annotationProcessor/java/main")
+            srcDir("$buildDir/$mainDir")
         }
     }
 }
 
 tasks.withType<JavaCompile> {
-    options.generatedSourceOutputDirectory.set(file("$buildDir/generated/sources/annotationProcessor/java/main"))
+    options.generatedSourceOutputDirectory.set(file("$buildDir/$mainDir"))
 }
 
 tasks.register<Delete>("cleanGenerated") {
