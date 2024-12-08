@@ -1,0 +1,10 @@
+spring:
+  mvc:
+    path-match:
+      matching-strategy: ANT_PATH_MATCHER
+  profiles:
+    active: local
+  application:
+    name: gilboard-api
+server:
+  port: 9090
