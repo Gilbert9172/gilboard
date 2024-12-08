@@ -1,6 +1,6 @@
 package org.gilboard.domain.service;
 
-import com.gilboard.domain.model.Member;
+import com.gilboard.domain.member.model.Member;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;

@@ -1,4 +1,4 @@
-package com.gilboard.domain.model;
+package com.gilboard.domain.member.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

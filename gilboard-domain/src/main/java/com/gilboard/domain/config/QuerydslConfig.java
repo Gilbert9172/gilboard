@@ -1,4 +1,4 @@
-package com.gilboard.domain;
+package com.gilboard.domain.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;

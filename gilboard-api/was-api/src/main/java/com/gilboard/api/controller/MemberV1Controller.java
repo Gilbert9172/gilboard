@@ -1,9 +1,9 @@
 package com.gilboard.api.controller;
 
-import com.gilboard.domain.service.MemberQueryService;
+import com.gilboard.domain.member.infra.service.MemberQueryService;
 import lombok.RequiredArgsConstructor;
-import com.gilboard.domain.model.Member;
-import com.gilboard.domain.repository.MemberJpaRepository;
+import com.gilboard.domain.member.model.Member;
+import com.gilboard.domain.member.infra.repository.MemberJpaRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

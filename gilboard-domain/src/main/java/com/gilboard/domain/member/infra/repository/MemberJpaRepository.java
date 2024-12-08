@@ -1,6 +1,7 @@
-package com.gilboard.domain.repository;
+package com.gilboard.domain.member.infra.repository;
 
-import com.gilboard.domain.model.Member;
+import com.gilboard.domain.member.model.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 public interface MemberJpaRepository extends JpaRepository<Member, Long> {
 }
