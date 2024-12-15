@@ -11,7 +11,7 @@ java {
 }
 
 allprojects {
-    group = "com.gilbertkdbshop"
+    group = "com.gilboard"
     version = "0.0.1-SNAPSHOT"
 
     tasks.withType<JavaCompile> {
