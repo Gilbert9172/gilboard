@@ -2,4 +2,4 @@ spring:
   config:
     activate:
       on-profile: local
-    import: classpath:application-domain-dbsource.yml
+    import: classpath:application-dbsource.yml

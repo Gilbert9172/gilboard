@@ -15,8 +15,21 @@ services:
     networks:
       - gilbert-local-network
 
+  redis:
+    image: redis:7.4.1
+    container_name: redis-container
+    ports:
+      - "6379:6379"            # Redis 포트 매핑
+    volumes:
+      - play_ground_redis_data:/data       # 데이터 영구 저장
+    command: [ "redis-server", "--appendonly", "yes" ] # AOF 설정
+    networks:
+      - gilbert-local-network
+
+
 networks:
   gilbert-local-network:
 
 volumes:
   play_ground_mysql_data:
+  play_ground_redis_data:
