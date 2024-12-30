@@ -20,7 +20,7 @@ services:
     container_name: redis-container
     privileged: true
     ports:
-      - "6379:6379"            # Redis 포트 매핑
+      - "6380:6379"            # Redis 포트 매핑
     volumes:
       - play_ground_redis_data:/data       # 데이터 영구 저장
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
