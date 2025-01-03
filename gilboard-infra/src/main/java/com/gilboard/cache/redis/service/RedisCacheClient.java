@@ -17,4 +17,10 @@ public class RedisCacheClient implements CacheClient {
     public <T> void saveValueOfString(String key, T value, Duration duration) {
         redisTemplate.opsForValue().set(key, value, duration);
     }
+
+    @Override
+    public <T> T findFromString(String key, Class<T> clazz) {
+        // TODD : logic
+        return null;
+    }
 }
