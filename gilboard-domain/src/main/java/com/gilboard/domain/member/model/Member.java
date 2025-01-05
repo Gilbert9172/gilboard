@@ -1,13 +1,13 @@
 package com.gilboard.domain.member.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import static jakarta.persistence.GenerationType.AUTO;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -15,17 +15,26 @@ import static jakarta.persistence.GenerationType.AUTO;
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = AUTO)
-    public Long id;
+    @Column(columnDefinition = "BINARY(16)")
+    public UUID id;
 
     public String name;
 
     @Builder
-    private Member(String name) {
+    private Member(UUID id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public static Member newOne(String name) {
-        return new Member(name);
+    public static Member newOne(UUID id, String name) {
+        return Member.builder()
+                .id(id)
+                .name(name)
+                .build();
+    }
+
+    @Override
+    public String toString() {
+        return "id :" + id + "&" + "name :" + name;
     }
 }
