@@ -29,6 +29,7 @@ subprojects {
     }
 
     dependencies {
+        implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         testImplementation("org.springframework.boot:spring-boot-starter-test")

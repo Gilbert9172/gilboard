@@ -1,8 +1,9 @@
 package com.gilboard.api.controller;
 
+import com.gilboard.JsonUtils;
 import com.gilboard.cache.CacheClient;
 import com.gilboard.domain.member.infra.repository.MemberJpaRepository;
-import com.gilboard.domain.member.model.Member;
+import com.gilboard.domain.member.model.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,8 @@ public class MemberV1Controller {
 
     @GetMapping("/sample1")
     public void save() {
-        memberJpaRepository.save(Member.newOne(UUID.randomUUID(), "gilbert"));
-        cacheClient.saveValueOfString("gilbert", "9172", Duration.of(1, ChronoUnit.HOURS));
+        Member member = Member.newOne(UUID.randomUUID(), "gilbert");
+        memberJpaRepository.save(member);
+        cacheClient.saveValueOfString("gilbert", JsonUtils.toJson(member), Duration.of(1, ChronoUnit.HOURS));
     }
 }
