@@ -1,4 +1,4 @@
-package com.gilboard;
+package com.gilboard.infra.serializer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class JsonUtils {
+public class CustomJsonSerializer {
 
     private static final ObjectMapper MAPPER;
 

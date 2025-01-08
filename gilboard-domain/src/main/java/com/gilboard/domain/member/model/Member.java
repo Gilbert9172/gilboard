@@ -1,4 +1,4 @@
-package com.gilboard.domain.member.model.member;
+package com.gilboard.domain.member.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

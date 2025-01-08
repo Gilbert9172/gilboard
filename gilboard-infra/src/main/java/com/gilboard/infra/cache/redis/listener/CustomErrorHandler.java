@@ -1,4 +1,4 @@
-package com.gilboard.cache.redis.listener;
+package com.gilboard.infra.cache.redis.listener;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.ErrorHandler;

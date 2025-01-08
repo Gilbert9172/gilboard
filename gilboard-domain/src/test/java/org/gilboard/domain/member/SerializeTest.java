@@ -2,7 +2,7 @@ package org.gilboard.domain.member;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gilboard.domain.member.model.member.Member;
+import com.gilboard.domain.member.model.Member;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;

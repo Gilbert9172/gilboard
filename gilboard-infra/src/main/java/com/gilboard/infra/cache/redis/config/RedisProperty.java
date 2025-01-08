@@ -1,4 +1,4 @@
-package com.gilboard.cache.redis.config;
+package com.gilboard.infra.cache.redis.config;
 
 import lombok.Getter;
 import lombok.Setter;

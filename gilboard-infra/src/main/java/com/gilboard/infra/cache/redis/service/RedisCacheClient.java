@@ -1,6 +1,6 @@
-package com.gilboard.cache.redis.service;
+package com.gilboard.infra.cache.redis.service;
 
-import com.gilboard.cache.CacheClient;
+import com.gilboard.infra.cache.CacheClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

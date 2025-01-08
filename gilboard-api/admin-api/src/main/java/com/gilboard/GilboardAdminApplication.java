@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.gilboard")
 @EntityScan("com.gilboard.domain")
-@EnableJpaRepositories({"com.gilboard.domain"})
+@EnableJpaRepositories({"com.gilboard.infra"})
 public class GilboardAdminApplication {
 
     public static void main(String[] args) {

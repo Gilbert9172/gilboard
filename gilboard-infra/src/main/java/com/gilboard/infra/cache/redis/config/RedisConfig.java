@@ -1,7 +1,7 @@
-package com.gilboard.cache.redis.config;
+package com.gilboard.infra.cache.redis.config;
 
-import com.gilboard.cache.redis.listener.CustomErrorHandler;
-import com.gilboard.cache.redis.listener.RedisKeyExpiredListener;
+import com.gilboard.infra.cache.redis.listener.CustomErrorHandler;
+import com.gilboard.infra.cache.redis.listener.RedisKeyExpiredListener;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

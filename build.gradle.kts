@@ -29,6 +29,11 @@ subprojects {
     }
 
     dependencies {
+        annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+        annotationProcessor("jakarta.persistence:jakarta.persistence-api")
+        implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+        annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
+
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2")
         implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")

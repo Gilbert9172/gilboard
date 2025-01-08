@@ -1,6 +1,6 @@
-package com.gilboard.cache.redis.listener;
+package com.gilboard.infra.cache.redis.listener;
 
-import com.gilboard.cache.CacheClient;
+import com.gilboard.infra.cache.CacheClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;

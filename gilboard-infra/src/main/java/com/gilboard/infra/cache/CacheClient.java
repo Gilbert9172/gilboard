@@ -1,4 +1,4 @@
-package com.gilboard.cache;
+package com.gilboard.infra.cache;
 
 import java.time.Duration;
 
