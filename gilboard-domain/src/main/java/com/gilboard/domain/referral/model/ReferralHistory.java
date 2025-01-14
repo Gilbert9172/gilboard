@@ -1,14 +1,12 @@
 package com.gilboard.domain.referral.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.gilboard.domain.member.model.MemberId;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.ZonedDateTime;
-import java.util.UUID;
 
 import static lombok.AccessLevel.PROTECTED;
 
@@ -17,28 +15,29 @@ import static lombok.AccessLevel.PROTECTED;
 @NoArgsConstructor(access = PROTECTED)
 public class ReferralHistory {
 
-    @Id
-    @Column(columnDefinition = "BINARY(16)", nullable = false)
-    private UUID id;
+    @EmbeddedId
+    private ReferralHistoryId id;
 
-    @Column(columnDefinition = "BINARY(16)", nullable = false)
-    private UUID inviteeId;
+    @Embedded
+    @AttributeOverride(name = "id", column = @Column(name = "invitee_id", nullable = false))
+    private MemberId inviteeId;
 
-    @Column(columnDefinition = "BINARY(16)", nullable = false)
-    private UUID inviterId;
+    @Embedded
+    @AttributeOverride(name = "id", column = @Column(name = "inviter_id", nullable = false))
+    private MemberId inviterId;
 
     @Column(columnDefinition = "DATETIME(3)", nullable = false)
     private ZonedDateTime createdAt;
 
     @Builder
-    private ReferralHistory(UUID id, UUID inviteeId, UUID inviterId, ZonedDateTime createdAt) {
+    private ReferralHistory(ReferralHistoryId id, MemberId inviteeId, MemberId inviterId, ZonedDateTime createdAt) {
         this.id = id;
         this.inviteeId = inviteeId;
         this.inviterId = inviterId;
         this.createdAt = createdAt;
     }
 
-    public static ReferralHistory newOne(UUID id, UUID inviteeId, UUID inviterId) {
+    public static ReferralHistory newOne(ReferralHistoryId id, MemberId inviteeId, MemberId inviterId) {
         return ReferralHistory.builder()
                 .id(id)
                 .inviteeId(inviteeId)

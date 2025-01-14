@@ -1,13 +1,12 @@
 package com.gilboard.domain.referral.model;
 
+import com.gilboard.domain.member.model.MemberId;
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.UUID;
 
 import static lombok.AccessLevel.PROTECTED;
 
@@ -16,9 +15,8 @@ import static lombok.AccessLevel.PROTECTED;
 @NoArgsConstructor(access = PROTECTED)
 public class Referral {
 
-    @Id
-    @Column(columnDefinition = "BINARY(16)")
-    UUID id;
+    @EmbeddedId
+    MemberId id;
 
     @Column(columnDefinition = "VARCHAR(32)", nullable = false)
     private String referralCode;
@@ -28,13 +26,13 @@ public class Referral {
     private int inviteeMemberCount;
 
     @Builder
-    private Referral(UUID id, String referralCode, int inviteeMemberCount) {
+    private Referral(MemberId id, String referralCode, int inviteeMemberCount) {
         this.id = id;
         this.referralCode = referralCode;
         this.inviteeMemberCount = inviteeMemberCount;
     }
 
-    public static Referral newOne(UUID memberId, String referralCode) {
+    public static Referral newOne(MemberId memberId, String referralCode) {
         return Referral.builder()
                 .id(memberId)
                 .referralCode(referralCode)

@@ -1,4 +1,4 @@
-package com.gilboard.infra.repository.referral;
+package com.gilboard.infra.persistence.repository.referral;
 
 import com.gilboard.domain.referral.model.Referral;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,17 +1,16 @@
 package com.gilboard.api.referral.dto;
 
+import com.gilboard.domain.member.model.MemberId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.UUID;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReferralInputRequest {
 
-    private UUID memberId;
+    private MemberId memberId;
     private String referralCode;
 
 }

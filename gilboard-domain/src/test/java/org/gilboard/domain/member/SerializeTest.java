@@ -3,16 +3,15 @@ package org.gilboard.domain.member;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gilboard.domain.member.model.Member;
+import com.gilboard.domain.member.model.MemberId;
 import org.junit.jupiter.api.Test;
-
-import java.util.UUID;
 
 public class SerializeTest {
 
     @Test
     void objectMapperTest1() throws JsonProcessingException {
         // given
-        Member member = Member.newOne(UUID.randomUUID(), "gilbert");
+        Member member = Member.newOne(MemberId.newOne(1L), "gilbert");
 
         // when
         ObjectMapper objectMapper = new ObjectMapper();
@@ -40,7 +39,7 @@ public class SerializeTest {
     @Test
     void objectMapperTest3() throws JsonProcessingException {
         // given
-        Member member = Member.newOne(UUID.randomUUID(), "gilbert");
+        Member member = Member.newOne(MemberId.newOne(1L), "gilbert");
 
         // when
         ObjectMapper objectMapper = new ObjectMapper();

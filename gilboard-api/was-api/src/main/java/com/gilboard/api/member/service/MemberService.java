@@ -2,13 +2,13 @@ package com.gilboard.api.member.service;
 
 import com.gilboard.api.referral.service.ReferralService;
 import com.gilboard.domain.member.model.Member;
+import com.gilboard.domain.member.model.MemberId;
 import com.gilboard.domain.member.repository.MemberRepository;
 import com.gilboard.infra.cache.CacheClient;
+import com.gilboard.infra.persistence.sequence.SequenceGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -16,11 +16,12 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final ReferralService referralService;
+    private final SequenceGenerator sequenceGenerator;
     private final CacheClient cacheClient;
 
     @Transactional
     public void createMember(String nickName) {
-        UUID memberId = UUID.randomUUID();
+        MemberId memberId = MemberId.newOne(sequenceGenerator.generate());
         Member member = Member.newOne(memberId, nickName);
         memberRepository.save(member);
         referralService.createReferralCode(memberId);

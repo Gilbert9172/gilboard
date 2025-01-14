@@ -1,4 +1,4 @@
-package com.gilboard.infra.repository.member;
+package com.gilboard.infra.persistence.repository.member;
 
 import com.gilboard.domain.member.model.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
