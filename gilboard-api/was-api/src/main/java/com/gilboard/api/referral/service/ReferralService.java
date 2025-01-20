@@ -5,12 +5,15 @@ import com.gilboard.domain.referral.model.Referral;
 import com.gilboard.domain.referral.model.ReferralHistory;
 import com.gilboard.domain.referral.model.ReferralHistoryId;
 import com.gilboard.domain.referral.model.StringGenerator;
+import com.gilboard.infra.cache.CacheClient;
 import com.gilboard.infra.persistence.repository.referral.ReferralHistoryRepository;
 import com.gilboard.infra.persistence.repository.referral.ReferralRepository;
 import com.gilboard.infra.persistence.sequence.SequenceGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Duration;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +22,7 @@ public class ReferralService {
     private final ReferralRepository referralRepository;
     private final ReferralHistoryRepository referralHistoryRepository;
     private final StringGenerator stringGenerator;
+    private final CacheClient cacheClient;
     private final SequenceGenerator sequenceGenerator;
 
     @Transactional
@@ -34,7 +38,8 @@ public class ReferralService {
         ReferralHistoryId referralHistoryId = ReferralHistoryId.newOne(sequenceGenerator.generate());
         ReferralHistory referralHistory = ReferralHistory.newOne(referralHistoryId, inviteeId, invitorReferral.getId());
         referralHistoryRepository.save(referralHistory);
-        invitorReferral.updateInviteeCount();
-    }
 
+        String redisKey = String.format("referral:%s", referralCode);
+        cacheClient.saveValueOfString(redisKey, inviteeId.toString(), Duration.ofSeconds(20L));
+    }
 }

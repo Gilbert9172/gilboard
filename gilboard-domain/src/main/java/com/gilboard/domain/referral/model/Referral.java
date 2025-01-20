@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import static lombok.AccessLevel.PROTECTED;
 
+// TODO : ReferralCode Indexing
 @Getter
 @Entity
 @NoArgsConstructor(access = PROTECTED)
@@ -39,8 +40,8 @@ public class Referral {
                 .build();
     }
 
-    public void updateInviteeCount() {
-        this.inviteeMemberCount++;
+    public void updateInviteeCount(int count) {
+        this.inviteeMemberCount = count;
     }
 
 }

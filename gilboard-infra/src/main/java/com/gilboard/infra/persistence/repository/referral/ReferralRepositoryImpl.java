@@ -1,5 +1,6 @@
 package com.gilboard.infra.persistence.repository.referral;
 
+import com.gilboard.domain.member.model.MemberId;
 import com.gilboard.domain.referral.model.Referral;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -20,5 +21,10 @@ public class ReferralRepositoryImpl implements ReferralRepository {
     @Override
     public Optional<Referral> findByReferralCode(String code) {
         return jpaRepository.findByReferralCode(code);
+    }
+
+    @Override
+    public Optional<Referral> findById(MemberId memberId) {
+        return jpaRepository.findById(memberId);
     }
 }

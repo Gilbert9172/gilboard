@@ -18,6 +18,10 @@ public class MemberId {
         this.id = id;
     }
 
+    public static MemberId from(String id) {
+        return new MemberId(Long.parseLong(id));
+    }
+
     public static MemberId newOne(Long id) {
         if (ObjectUtils.isEmpty(id)) {
             return null;
@@ -42,4 +46,8 @@ public class MemberId {
         return super.hashCode();
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(this.id);
+    }
 }

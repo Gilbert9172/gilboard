@@ -18,7 +18,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @RequiredArgsConstructor
 public class RedisConfig {
 
-    private final static String PATTERN = "__keyspace@*__:test*";
+    private final static String PATTERN = "__keyspace@*__:referral*";
 
     private final RedisProperty redisProperty;
 
