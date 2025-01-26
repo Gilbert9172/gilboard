@@ -6,6 +6,7 @@ import com.gilboard.domain.referral.model.ReferralHistory;
 import com.gilboard.domain.referral.model.ReferralHistoryId;
 import com.gilboard.domain.referral.model.StringGenerator;
 import com.gilboard.infra.cache.CacheClient;
+import com.gilboard.infra.lock.redisson.DistributedLock;
 import com.gilboard.infra.persistence.repository.referral.ReferralHistoryRepository;
 import com.gilboard.infra.persistence.repository.referral.ReferralRepository;
 import com.gilboard.infra.persistence.sequence.SequenceGenerator;
@@ -41,5 +42,15 @@ public class ReferralService {
 
         String redisKey = String.format("referral:%s", referralCode);
         cacheClient.saveValueOfString(redisKey, inviteeId.toString(), Duration.ofSeconds(20L));
+    }
+
+    @Transactional
+    @DistributedLock(value = "#referralCode")
+    public void enterReferralCodeV2(MemberId inviteeId, String referralCode) {
+        Referral invitorReferral = referralRepository.findByReferralCode(referralCode).orElseThrow(RuntimeException::new);
+        ReferralHistoryId referralHistoryId = ReferralHistoryId.newOne(sequenceGenerator.generate());
+        ReferralHistory referralHistory = ReferralHistory.newOne(referralHistoryId, inviteeId, invitorReferral.getId());
+        referralHistoryRepository.save(referralHistory);
+        invitorReferral.updateInviteeCountV2();
     }
 }

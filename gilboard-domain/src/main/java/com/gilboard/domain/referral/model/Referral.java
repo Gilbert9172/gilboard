@@ -44,4 +44,8 @@ public class Referral {
         this.inviteeMemberCount = count;
     }
 
+    public void updateInviteeCountV2() {
+        this.inviteeMemberCount++;
+    }
+
 }
