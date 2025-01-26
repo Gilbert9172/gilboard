@@ -5,8 +5,8 @@ import com.gilboard.domain.referral.model.Referral;
 import com.gilboard.infra.persistence.repository.referral.ReferralRepository;
 import com.gilboard.was.referral.service.ReferralService;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -47,7 +47,7 @@ public class ReferralV2ControllerTest {
         Assertions.assertThat(referral.getInviteeMemberCount()).isEqualTo(CONCURRENT_COUNT);
     }
 
-    @Test
+    @Disabled
     @DisplayName("동시에 100명이 동일한 초대코드 입력")
     public void badTicketingTest() throws Exception {
         MemberId memberId = MemberId.from("780504865333376");

@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     java
     id("org.springframework.boot") version "3.3.3"
@@ -14,10 +16,21 @@ allprojects {
     group = "com.gilboard"
     version = "0.0.1-SNAPSHOT"
 
+    repositories {
+        mavenCentral() // Maven Central Repository
+    }
+
     tasks.withType<JavaCompile> {
         sourceCompatibility = "21"
     }
 }
+
+val bootJar: BootJar by tasks
+bootJar.enabled = false
+
+val jar: Jar by tasks
+jar.enabled = true
+
 
 subprojects {
     apply(plugin = "java")
@@ -25,7 +38,7 @@ subprojects {
     apply(plugin = "io.spring.dependency-management")
 
     repositories {
-        mavenCentral()
+        mavenCentral() // Maven Central 추가
     }
 
     dependencies {

@@ -1,3 +1,11 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
+val bootJar: BootJar by tasks
+bootJar.enabled = false
+
+val jar: Jar by tasks
+jar.enabled = true
+
 dependencies {
     implementation(project(":gilboard-domain"))
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
