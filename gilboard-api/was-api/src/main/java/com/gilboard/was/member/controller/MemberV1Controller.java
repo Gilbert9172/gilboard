@@ -1,7 +1,7 @@
-package com.gilboard.api.member.controller;
+package com.gilboard.was.member.controller;
 
-import com.gilboard.api.member.dto.JoinRequest;
-import com.gilboard.api.member.service.MemberService;
+import com.gilboard.was.member.dto.JoinRequest;
+import com.gilboard.was.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

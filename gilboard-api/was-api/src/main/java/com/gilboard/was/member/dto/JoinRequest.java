@@ -1,4 +1,4 @@
-package com.gilboard.api.member.dto;
+package com.gilboard.was.member.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

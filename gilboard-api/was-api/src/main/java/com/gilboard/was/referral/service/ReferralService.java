@@ -1,4 +1,4 @@
-package com.gilboard.api.referral.service;
+package com.gilboard.was.referral.service;
 
 import com.gilboard.domain.member.model.MemberId;
 import com.gilboard.domain.referral.model.Referral;

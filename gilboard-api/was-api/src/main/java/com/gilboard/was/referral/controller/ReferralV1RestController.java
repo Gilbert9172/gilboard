@@ -1,4 +1,4 @@
-package com.gilboard.api.referral.controller;
+package com.gilboard.was.referral.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package com.gilboard.api.member.controller;
+package com.gilboard.was.member.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

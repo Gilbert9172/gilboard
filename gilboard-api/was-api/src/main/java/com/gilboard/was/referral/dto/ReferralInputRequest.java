@@ -1,4 +1,4 @@
-package com.gilboard.api.referral.dto;
+package com.gilboard.was.referral.dto;
 
 import com.gilboard.domain.member.model.MemberId;
 import lombok.AllArgsConstructor;

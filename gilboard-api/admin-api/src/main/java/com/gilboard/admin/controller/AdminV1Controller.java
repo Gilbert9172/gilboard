@@ -1,4 +1,4 @@
-package com.gilboard.api.controller;
+package com.gilboard.admin.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

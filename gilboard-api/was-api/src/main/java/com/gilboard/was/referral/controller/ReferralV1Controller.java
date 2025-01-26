@@ -1,7 +1,7 @@
-package com.gilboard.api.referral.controller;
+package com.gilboard.was.referral.controller;
 
-import com.gilboard.api.referral.dto.ReferralInputRequest;
-import com.gilboard.api.referral.service.ReferralService;
+import com.gilboard.was.referral.dto.ReferralInputRequest;
+import com.gilboard.was.referral.service.ReferralService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
